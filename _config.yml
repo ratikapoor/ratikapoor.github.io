@@ -1,7 +1,7 @@
 # --- Basic options --- #
 
 # Name of website
-title: HumanLearning-ML!
+title: "HumanLearning-ML!"
 
 # Short description of your site
 description: A virtual proof that I'm awesome
@@ -44,7 +44,7 @@ social-network-links:
 #   twitter: daattali
   rss: false
 #  reddit: yourname
-#   linkedin: www.linkedin.com/in/ritika-kapoor-76144269
+  linkedin: "www.linkedin.com/in/ritika-kapoor-76144269"
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
