@@ -44,7 +44,7 @@ social-network-links:
 #   twitter: daattali
   rss: false
 #  reddit: yourname
- linkedin: www.linkedin.com/in/ritika-kapoor-76144269
+#   linkedin: www.linkedin.com/in/ritika-kapoor-76144269
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
@@ -68,7 +68,7 @@ share-links-active:
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "MyWebsite.com"
+# url-pretty: "MyWebsite.com"
 
 # Create a "tags" index page and make tags on each post clickable
 link-tags: true
