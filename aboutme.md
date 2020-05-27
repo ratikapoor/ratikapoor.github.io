@@ -1,16 +1,8 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: Here to learn 
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+Hey, I am Ritika Kapoor. I am currently working as data scientist in Deloitte. I have 4 years of data science experience across industries. In this blog series, I am trying to jot down my learnings. Feel free to drop me a mail at rati.kapoor27@gmail.com if you find any error or have any queries
 
-- I rock a great mustache
-- I'm extremely loyal to my family
-
-What else do you need?
-
-### my history
-
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
