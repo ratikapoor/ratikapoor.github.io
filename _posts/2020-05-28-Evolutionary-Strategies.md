@@ -306,3 +306,15 @@ for generation in range(generations):
 CartPole defines "solving" as getting average reward of 195.0 over 100 consecutive trials. It can be seen in the above plot that we were able to solve the problem in 6th episode itself.
 
 Go ahead and tweak the code to solve other reinforcement problems as well.
+
+
+References:
+
+[Evolutionary Computing/Metaheuristics](https://cs.gmu.edu/~sean/book/metaheuristics/Essentials.pdf) 
+
+[Deep Neuroevolution Paper](https://arxiv.org/pdf/1712.06567.pdf)
+
+[tutorialspoint](https://www.tutorialspoint.com/genetic_algorithms/genetic_algorithms_introduction.htm)
+
+[Goldberg_Genetic_Algorithms_in_Search](https://www.academia.edu/38484150/Goldberg_Genetic_Algorithms_in_Search)
+
