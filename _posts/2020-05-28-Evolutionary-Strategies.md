@@ -92,7 +92,7 @@ Success of GAs is attributed to the phenomenon of survival of the fittest. It is
 #### Schema Theorem
 A schema is a template that identifies similarity of string (vector of points) at certain position. High fitness vectors may contain certain pattern of points embedded at certain position.
 
-For example, consider a length 7 schema $${\ast}1{\ast}{\ast}0{\ast}1$ $that describes the set of all vectors of length 7 with fixed values at second, fifth and seventh position. The ${\ast}$ symbol implies that these positions can take any binary value. Also, a schema can be defined by 2 main attributes: order and defining length. The order O(H) of a schema is defined as the number of fixed values in the template, while the defining length  is the distance between the first and last fixed positions. In the above example, the order is 3 and its defining length is 5. The fitness of a schema is the average fitness of all strings matching the schema. The fitness of a string is a measure of the value of the encoded problem solution, as computed by a problem-specific evaluation function.
+For example, consider a length 7 schema $${\ast}1{\ast}{\ast}0{\ast}1$$ that describes the set of all vectors of length 7 with fixed values at second, fifth and seventh position. The ${\ast}$ symbol implies that these positions can take any binary value. Also, a schema can be defined by 2 main attributes: order and defining length. The order O(H) of a schema is defined as the number of fixed values in the template, while the defining length  is the distance between the first and last fixed positions. In the above example, the order is 3 and its defining length is 5. The fitness of a schema is the average fitness of all strings matching the schema. The fitness of a string is a measure of the value of the encoded problem solution, as computed by a problem-specific evaluation function.
 
 Schema theorem states that short, low order, above average schemata receive exponentially increasing trials in successive generations.
 
@@ -146,19 +146,20 @@ Thinking in terms of schema, 1-order samples won’t be affected by this disrupt
 
 $$11{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}$$ - probability that bits in this schema will be disrupted is 1/L-1 
 
-$$1{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}1$$- probability that bits in this schema will be disrupted is L-1/L-1 or 1
+$$1{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}1$$ - probability that bits in this schema will be disrupted is L-1/L-1 or 1
 
 Therefore, position of the bits matter when using 1-point crossover. Thus, correlated bits located at large distance will be separated with higher probability.
 
 #### 2-point crossover-
 A special case of 1-point crossover where 2 points are selected randomly to carry out the bit transfer. It could be less disruptive compared to 1-point as vector can be visualized in the form of a rings so bits at extreme ends will not likely be disrupted.
-
 ![image.png](/assets/img/two_cross.png)
 For 1-point and 2-point crossover, schemata which have bits that are close together on the vector are less likely to be disrupted by crossover.
 
 #### Uniform Crossover-
 
-This operator does not put limitation of defining length between the bits as positions for swapping bits are randomly selected in this case. This means that each bit is inherited independently from any other bit and that there is no linkage between bits. In general, the probability of disruption is $1-(1/2)^{o(H)-1}$, where o(H) is the order of the schema. 
+This operator does not put limitation of defining length between the bits as positions for swapping bits are randomly selected in this case. This means that each bit is inherited independently from any other bit and that there is no linkage between bits.
+![image.png](/assets/img/uni.jpg)
+In general, the probability of disruption is $$1-(1/2)^{o(H)-1}$$, where o(H) is the order of the schema. 
 
 In research, it is suggested that probability of disruption for uniform crossover is greater than the rest of the two operators but still it sometimes performs better especially for smaller population.
 
@@ -310,11 +311,15 @@ Go ahead and tweak the code to solve other reinforcement problems as well.
 
 References:
 
-[Evolutionary Computing/Metaheuristics](https://cs.gmu.edu/~sean/book/metaheuristics/Essentials.pdf) 
+[Evolutionary Computing/Metaheuristics](https://cs.gmu.edu/~sean/book/metaheuristics/Essentials.pdf) images in this post are snipped from this book
 
 [Deep Neuroevolution Paper](https://arxiv.org/pdf/1712.06567.pdf)
 
 [tutorialspoint](https://www.tutorialspoint.com/genetic_algorithms/genetic_algorithms_introduction.htm)
 
 [Goldberg_Genetic_Algorithms_in_Search](https://www.academia.edu/38484150/Goldberg_Genetic_Algorithms_in_Search)
+
+[reinforcement-learning-without-gradients](https://towardsdatascience.com/reinforcement-learning-without-gradients-evolving-agents-using-genetic-algorithms-8685817d84f)
+
+
 
