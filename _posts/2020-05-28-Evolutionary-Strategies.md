@@ -212,7 +212,7 @@ def mutate(agent,eps_threshold):
 
     return child_agent
   ```
- Below is the main snippet that calls all the function to run through the generations. You can check this link to see the full code.
+ Below is the main snippet that calls all the function to run through the generations. You can check [link to git!](h(ttps://github.com/ratikapoor/evolutionary.git) to see the full code.
  
  ```python
  game_actions = 2 #2 actions possible: left or right
@@ -293,7 +293,8 @@ for generation in range(generations):
     steps_done+=1
 #     env.render()
 ```
-![](/images/episode.png)
+![](/assets/img/foo.jpg)
+
 CartPole defines "solving" as getting average reward of 195.0 over 100 consecutive trials. It can be seen in the above plot that we were able to solve the problem in 6th episode itself.
 
 Go ahead and tweak the code to solve other reinforcement problems as well.
