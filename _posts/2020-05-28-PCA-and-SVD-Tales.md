@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Tales of SVD and PCA
-subtitle: Explore the maths behind with python interpretation
+subtitle: Explore the maths behind with python implementation
 cover-img: /assets/img/path.jpg
 
 ---
