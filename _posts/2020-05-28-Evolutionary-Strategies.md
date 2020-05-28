@@ -1,4 +1,9 @@
-# Learn from the Nature: reinforcement learning using Genetic Algorithm (GA)
+---
+layout: post
+title: Learn from the Nature: reinforcement learning using Genetic Algorithm (GA)
+subtitle: Solving open AI cartpole problem using GA
+cover-img: /assets/img/path.jpg
+---
 
 In this post, we will try to understand the basic mechanism behind genetic algorithm and use it to solve the reinforcement learning problem. See below how well genetic algorithm was able to balance cartpole in the 7th episode only which is at the 4th position in the open AI leaderboard [check out my rank here!](https://github.com/openai/gym/wiki/Leaderboard).
 
