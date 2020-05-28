@@ -123,3 +123,9 @@ To summarize, we tried to find dimensions along which maximum information is pro
 Below is a python notebook showing above calculation with sklearn PCA:
 
 <script src="https://gist.github.com/ratikapoor/203dfc425ae6b5c04847fcd06e9b273f.js"></script>
+
+References:
+
+[Linear Algebra](http://math.mit.edu/~gs/linearalgebra/) 
+
+[SVD](https://www.cs.cmu.edu/~venkatg/teaching/CStheory-infoage/book-chapter-4.pdf) images in this post are snipped from this pdf
