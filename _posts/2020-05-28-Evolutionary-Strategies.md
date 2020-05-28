@@ -226,7 +226,7 @@ def mutate(agent,eps_threshold):
 
     return child_agent
   ```
- Below is the main snippet that calls all the function to run through the generations. You can check [ga!](https://github.com/ratikapoor/evolutionary.git) to see the full code.
+ Below is the main snippet that calls all the function to run through the generations. You can [click here!](https://github.com/ratikapoor/evolutionary.git) to see the full code.
  
  ```python
  game_actions = 2 #2 actions possible: left or right
@@ -318,9 +318,13 @@ Go ahead and tweak the code to solve other reinforcement problems as well.
 References:
 
 [Evolutionary Computing/Metaheuristics](https://cs.gmu.edu/~sean/book/metaheuristics/Essentials.pdf) images in this post are snipped from this book
+
 [Deep Neuroevolution Paper](https://arxiv.org/pdf/1712.06567.pdf)
+
 [www.tutorialspoint.com](https://www.tutorialspoint.com/genetic_algorithms/genetic_algorithms_introduction.htm)
+
 [Goldberg_Genetic_Algorithms_in_Search](https://www.academia.edu/38484150/Goldberg_Genetic_Algorithms_in_Search)
+
 [reinforcement-learning-without-gradients](https://towardsdatascience.com/reinforcement-learning-without-gradients-evolving-agents-using-genetic-algorithms-8685817d84f)
 
 
