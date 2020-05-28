@@ -1,5 +1,10 @@
-# Dreading tales of SVD and PCA
-## Explore the maths behind with python interpretation
+---
+layout: post
+title: Tales of SVD and PCA
+subtitle: Explore the maths behind with python interpretation
+cover-img: /assets/img/path.jpg
+---
+
 How many times I may walk over this super popular ML topic but it never ceases to amaze (or you may say scare me) with its ability to project itself to different spaces altogether. Let’s deconstruct and reconstruct this once again for one and all.
 Here’s a short introduction of PCA for those who never found it friendly enough (you’re not to be blamed). Greet it with overwhelming features and it will help you by reducing the feature space to what could be absorbed by your favorite models. Mind you, its no normal reduction but projection to different set of orthogonal coordinates where no correlation can exist (can you foresee elimination of multicollinearity here!).
 
