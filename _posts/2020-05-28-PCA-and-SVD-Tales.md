@@ -32,7 +32,7 @@ To summarize, we are just estimating best fit unit vector orthogonal to each oth
 
 When we compute $$Av_i$$, we actually get the list of lengths (with signs) of the projections of
 the rows of A onto $$v_i$$. Think of $$|Av_i| = \sigma_i (A)$$ as the component of the matrix A along
-$$v_i$$. Here, $$\sigma_i (A)$ $is called as singular values of A.
+$$v_i$$. Here, $$\sigma_i (A)$$ is called as singular values of A.
 
 So, each row of the matrix A is projected on the vector vi which is like finding the component of matrix A along the vector $$v_i$$.
 
