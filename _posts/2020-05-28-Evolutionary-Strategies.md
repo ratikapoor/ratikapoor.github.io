@@ -2,7 +2,7 @@
 In this post, we will try to understand the basic mechanism behind genetic algorithm and use it to solve the reinforcement learning problem. See below how well genetic algorithm was able to balance cartpole after the 6th episode only.
 
 <figure>
-  <video controls width="100%" src="{{ site.baseurl }}/images/cartpole.mp4" autoplay loop/>
+  <video controls width="100%" src="{{ site.baseurl }}/assets/img//cartpole.mp4" autoplay loop/>
 </figure>
 
 Okay, before diving deep into the GA let me answer some ifs and buts, the whys and why nots with a brief background on meta heuristic – a class to which it belongs.
@@ -17,7 +17,7 @@ Word “meta” can be linked to some degree of randomness induced in the model.
 ### How this pool of population-based metaheuristic algorithms work?
 Suppose you are provided with a problem about which you don’t have any idea and in reality, it looks like below (wow, what a nightmare):
 
-![](/images/surface.png)
+![](/assets/img/surface.png)
 
 But you have this output(savior) function which returns the fitness value of your imagined solutions.
 
@@ -83,7 +83,7 @@ Success of GAs is attributed to the phenomenon of survival of the fittest. It is
 #### Schema Theorem
 A schema is a template that identifies similarity of string (vector of points) at certain position. High fitness vectors may contain certain pattern of points embedded at certain position.
 
-For example, consider a length 7 schema ${\ast}1{\ast}{\ast}0{\ast}1$ that describes the set of all vectors of length 7 with fixed values at second, fifth and seventh position. The ${\ast}$ symbol implies that these positions can take any binary value. Also, a schema can be defined by 2 main attributes: order and defining length. The order O(H) of a schema is defined as the number of fixed values in the template, while the defining length  is the distance between the first and last fixed positions. In the above example, the order is 3 and its defining length is 5. The fitness of a schema is the average fitness of all strings matching the schema. The fitness of a string is a measure of the value of the encoded problem solution, as computed by a problem-specific evaluation function.
+For example, consider a length 7 schema $${\ast}1{\ast}{\ast}0{\ast}1$ $that describes the set of all vectors of length 7 with fixed values at second, fifth and seventh position. The ${\ast}$ symbol implies that these positions can take any binary value. Also, a schema can be defined by 2 main attributes: order and defining length. The order O(H) of a schema is defined as the number of fixed values in the template, while the defining length  is the distance between the first and last fixed positions. In the above example, the order is 3 and its defining length is 5. The fitness of a schema is the average fitness of all strings matching the schema. The fitness of a string is a measure of the value of the encoded problem solution, as computed by a problem-specific evaluation function.
 
 Schema theorem states that short, low order, above average schemata receive exponentially increasing trials in successive generations.
 
@@ -94,7 +94,7 @@ Schema theorem states that short, low order, above average schemata receive expo
 
 #### Roulette Wheel or fitness proportionate –
 In this, individuals are selected based on fitness compared to average fitness of the population. The probability of selecting an individual can be given by:
-![](/images/fitness.png)
+![](/assets/img/fitness.png)
 
 It is equivalent to rolling a roulette wheel (completely a casino thing). All non-casino folks out there, don’t feel left out, here is a quick help. Basically, there is a fixed point/arrow and a wheel (how subtle!) which is rotated and individual corresponding to the point where it stopped stands selected.
 
@@ -132,19 +132,19 @@ In a way, information of important traits get dispersed in the population to cre
 
 #### 1-point crossover-
 A position is randomly selected on the vector and values are swapped for a broken segment.
-![image.png](/images/one_cross.png)
+![image.png](/assets/img/one_cross.png)
 Thinking in terms of schema, 1-order samples won’t be affected by this disruption. But higher order samples will be affected but not with same probability. Consider 2 schemata:
 
-$11{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}$ - probability that bits in this schema will be disrupted is 1/L-1 
+$$11{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}$$ - probability that bits in this schema will be disrupted is 1/L-1 
 
-$1{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}1 $- probability that bits in this schema will be disrupted is L-1/L-1 or 1
+$$1{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}1$$- probability that bits in this schema will be disrupted is L-1/L-1 or 1
 
 Therefore, position of the bits matter when using 1-point crossover. Thus, correlated bits located at large distance will be separated with higher probability.
 
 #### 2-point crossover-
 A special case of 1-point crossover where 2 points are selected randomly to carry out the bit transfer. It could be less disruptive compared to 1-point as vector can be visualized in the form of a rings so bits at extreme ends will not likely be disrupted.
 
-![image.png](/images/two_cross.png)
+![image.png](/assets/img/two_cross.png)
 For 1-point and 2-point crossover, schemata which have bits that are close together on the vector are less likely to be disrupted by crossover.
 
 #### Uniform Crossover-
