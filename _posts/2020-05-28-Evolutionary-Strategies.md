@@ -89,9 +89,7 @@ For example, consider a length 7 schema $${\ast}1{\ast}{\ast}0{\ast}1$ $that des
 Schema theorem states that short, low order, above average schemata receive exponentially increasing trials in successive generations.
 
 ### Brief description of operators
-
-
-#### For selecting fittest indivisuals some of the following commonly used operators can be used:
+For selecting fittest individuals some of the following commonly used operators can be used:
 
 #### Roulette Wheel or fitness proportionate –
 In this, individuals are selected based on fitness compared to average fitness of the population. The probability of selecting an individual can be given by:
@@ -123,7 +121,8 @@ def rank_selection(agents, sorted_parent_indexes,cross):
         children_agents.append(agents[selected_agent_index])
     return children_agents
   ```
-  
+
+
   
 #### Tournament Selection-
 This technique is popular nowadays as it possesses less computational complexities and has an added advantage of performing at par with linear ranking or truncation without having to sort population on the basis of fitness. 
@@ -212,7 +211,7 @@ def mutate(agent,eps_threshold):
 
     return child_agent
   ```
- Below is the main snippet that calls all the function to run through the generations. You can check [link to git!](h(ttps://github.com/ratikapoor/evolutionary.git) to see the full code.
+ Below is the main snippet that calls all the function to run through the generations. You can check [link to git!](https://github.com/ratikapoor/evolutionary.git) to see the full code.
  
  ```python
  game_actions = 2 #2 actions possible: left or right
@@ -293,6 +292,7 @@ for generation in range(generations):
     steps_done+=1
 #     env.render()
 ```
+
 ![](/assets/img/foo.jpg)
 
 CartPole defines "solving" as getting average reward of 195.0 over 100 consecutive trials. It can be seen in the above plot that we were able to solve the problem in 6th episode itself.
