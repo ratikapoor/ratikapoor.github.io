@@ -31,7 +31,7 @@ To summarize, we are just estimating best fit unit vector orthogonal to each oth
 ### Time to unravel the mystery behind these freshly estimated orthogonal vectors
 
 When we compute $$Av_i$$, we actually get the list of lengths (with signs) of the projections of
-the rows of A onto $$v_i$$. Think of $|Av_i| = \sigma_i (A)$ as the component of the matrix A along
+the rows of A onto $$v_i$$. Think of $$|Av_i| = \sigma_i (A)$$ as the component of the matrix A along
 $$v_i$$. Here, $$\sigma_i (A)$ $is called as singular values of A.
 
 So, each row of the matrix A is projected on the vector vi which is like finding the component of matrix A along the vector $$v_i$$.
@@ -44,7 +44,7 @@ Consider one row, say $$a_j$$, of A. Since $$v_1,v_2.....v_r$$ span the space of
 Summing over all rows j,
 $$\sum_{j=1}^{n}(a_j)^2 =\sum_{i=1}^{r}\sum_{j=1}^{n} (a_j.v_i )^2 = \sum_{i=1}^{r} Av_i= \sum_{i=1}^{r} \sigma_i(A)^2$$
 
-Here, when we compute Av, we along with length of the projected points of the data obtain sign of these length indicating direction. If we try to normalize Avi using $\sigma_i (A)$, we can obtain another set of orthogonal vectors: 
+Here, when we compute Av, we along with length of the projected points of the data obtain sign of these length indicating direction. If we try to normalize Avi using $$\sigma_i (A)$$, we can obtain another set of orthogonal vectors: 
 
 $$u_i=\frac{Av_i}{\sigma_i(A)}$$
 
@@ -57,7 +57,7 @@ Taking advantage of the property of unit vector we know for sure that $$u_i^T u_
 
 $$Av_i=u_i\sigma_i$$ 
 
-Multiplying both sides by $(Av_i)^T$,
+Multiplying both sides by $$(Av_i)^T$$,
 
 $$
 (Av_i)^TAv_i=(u_i\sigma_i)^Tu_i\sigma_i
@@ -67,7 +67,7 @@ v_i^TA^TAv_i=\sigma_i^2u_i^Tu_i \qquad    [u_i^Tu_i=1]
 v_i^TA^TAv_i=\sigma_i^2
 $$
 
-Here we want to find the optimal vector $v_i$ such that above singular value is maximized which will be equal to eigen vector of $$A^TA$$. It can be proved below using lagrange multipliers (assume B=$$A^TA$$ is a symmetric matrix):
+Here we want to find the optimal vector $$v_i$$ such that above singular value is maximized which will be equal to eigen vector of $$A^TA$$. It can be proved below using lagrange multipliers (assume B=$$A^TA$$ is a symmetric matrix):
 
 Taking the lagrangian:
 
@@ -106,7 +106,7 @@ v_i^T\sigma_j^2v_j=\sigma_iu_i^Tu_j\sigma_j  \qquad    [v_i^Tv_j=0]
 $$
 
 Since eigen values are not always zero, it can be stated that $$u_i^Tu_j=0$$. Thus, $$u_i$$ are also orthonormal. 
-Similarly as above, it can be shown that $$u_i$$ are the eigen vectors of $AA^T$.
+Similarly as above, it can be shown that $$u_i$$ are the eigen vectors of $$AA^T$$.
 
 Thus, matrix A can be factorized into product of three different matrices known as singular value decomposition. It can be written as: $$A=UDV^T$$ where the columns of U and V are orthonormal and the matrix D is diagonal with positive real entries.
 
