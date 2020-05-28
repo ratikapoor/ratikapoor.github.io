@@ -1,4 +1,5 @@
 # Learn from the Nature: reinforcement learning using Genetic Algorithm (GA)
+
 In this post, we will try to understand the basic mechanism behind genetic algorithm and use it to solve the reinforcement learning problem. See below how well genetic algorithm was able to balance cartpole after the 6th episode only.
 
 <figure>
@@ -123,7 +124,8 @@ def rank_selection(agents, sorted_parent_indexes,cross):
     return children_agents
   ```
   
- #### Tournament Selection-
+  
+#### Tournament Selection-
 This technique is popular nowadays as it possesses less computational complexities and has an added advantage of performing at par with linear ranking or truncation without having to sort population on the basis of fitness. 
 In k-way tournament selection, for each selection k individuals are randomly selected and then one with the best fitness is selected. Basically, conducting fight among k individuals and choosing the best among them.
 
@@ -177,7 +179,8 @@ def uniform_crossover(ind1,ind2,layers,uni_prob,mut_threshold):
         ind2=mutate(ind2,mut_threshold)
     offspring.extend((ind1,ind2))
     return offspring
-  ```
+ 
+ ```
 #### Mutation
 An individual can be randomly tweaked in order to enable exploration in the population. 
 Below is the case wherein we are exponentially decaying the mutation threshold through generation such that in initial phases greater exploration is there and in later phases we decrease the probability.
