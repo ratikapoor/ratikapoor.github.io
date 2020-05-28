@@ -141,7 +141,9 @@ In a way, information of important traits get dispersed in the population to cre
 
 #### 1-point crossover-
 A position is randomly selected on the vector and values are swapped for a broken segment.
+
 ![image.png](/assets/img/one_cross.png)
+
 Thinking in terms of schema, 1-order samples won’t be affected by this disruption. But higher order samples will be affected but not with same probability. Consider 2 schemata:
 
 $$11{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}$$ - probability that bits in this schema will be disrupted is 1/L-1 
@@ -152,13 +154,17 @@ Therefore, position of the bits matter when using 1-point crossover. Thus, corre
 
 #### 2-point crossover-
 A special case of 1-point crossover where 2 points are selected randomly to carry out the bit transfer. It could be less disruptive compared to 1-point as vector can be visualized in the form of a rings so bits at extreme ends will not likely be disrupted.
+
 ![image.png](/assets/img/two_cross.png)
+
 For 1-point and 2-point crossover, schemata which have bits that are close together on the vector are less likely to be disrupted by crossover.
 
 #### Uniform Crossover-
 
 This operator does not put limitation of defining length between the bits as positions for swapping bits are randomly selected in this case. This means that each bit is inherited independently from any other bit and that there is no linkage between bits.
+
 ![image.png](/assets/img/uni.jpg)
+
 In general, the probability of disruption is $$1-(1/2)^{o(H)-1}$$, where o(H) is the order of the schema. 
 
 In research, it is suggested that probability of disruption for uniform crossover is greater than the rest of the two operators but still it sometimes performs better especially for smaller population.
@@ -312,13 +318,9 @@ Go ahead and tweak the code to solve other reinforcement problems as well.
 References:
 
 [Evolutionary Computing/Metaheuristics](https://cs.gmu.edu/~sean/book/metaheuristics/Essentials.pdf) images in this post are snipped from this book
-
 [Deep Neuroevolution Paper](https://arxiv.org/pdf/1712.06567.pdf)
-
-[tutorialspoint](https://www.tutorialspoint.com/genetic_algorithms/genetic_algorithms_introduction.htm)
-
+[www.tutorialspoint.com](https://www.tutorialspoint.com/genetic_algorithms/genetic_algorithms_introduction.htm)
 [Goldberg_Genetic_Algorithms_in_Search](https://www.academia.edu/38484150/Goldberg_Genetic_Algorithms_in_Search)
-
 [reinforcement-learning-without-gradients](https://towardsdatascience.com/reinforcement-learning-without-gradients-evolving-agents-using-genetic-algorithms-8685817d84f)
 
 
