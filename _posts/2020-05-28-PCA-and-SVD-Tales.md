@@ -126,6 +126,5 @@ Below is a python notebook showing above calculation with sklearn PCA:
 
 References:
 
-[Linear Algebra](http://math.mit.edu/~gs/linearalgebra/) 
-
-[SVD](https://www.cs.cmu.edu/~venkatg/teaching/CStheory-infoage/book-chapter-4.pdf) images in this post are snipped from this pdf
+[Linear Algebra by Gilbert Strang](http://math.mit.edu/~gs/linearalgebra/) 
+[www.cs.cmu.edu](https://www.cs.cmu.edu/~venkatg/teaching/CStheory-infoage/book-chapter-4.pdf) images in this post are snipped from this pdf
