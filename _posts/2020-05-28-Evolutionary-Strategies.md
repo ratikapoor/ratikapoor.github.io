@@ -211,7 +211,7 @@ def mutate(agent,eps_threshold):
 
     return child_agent
   ```
- Below is the main snippet that calls all the function to run through the generations. You can check [link to git!](https:/github.com/ratikapoor/evolutionary.git) to see the full code.
+ Below is the main snippet that calls all the function to run through the generations. You can check [evolutionary.git!](https://github.com//ratikapoor//evolutionary.git) to see the full code.
  
  ```python
  game_actions = 2 #2 actions possible: left or right
