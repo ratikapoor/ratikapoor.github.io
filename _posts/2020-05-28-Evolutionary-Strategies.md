@@ -16,7 +16,7 @@ In this post, we will try to understand the basic mechanism behind genetic algor
 
 Okay, before diving deep into the GA let me answer some ifs and buts, the whys and why nots with a brief background on meta heuristic – a class to which it belongs.
 
-## Why not the descent down the gradient? 
+## Why not descent down using gradient? 
 Gradient descent can be the go-to algorithm if you have that most desirable continuous, differentiable, unimodal function to detect “The” optimal point but hey welcome to the real world to realise that problems are not this smooth. Given a discrete function and there goes our Mr. dependable out of the bag. Also, don’t ask me to walk the pitted path of those “locals” to reach the “global” goal with normal descent. I heard somebody mentioning NP-hard.
 
 Of course that doesn’t imply if encountered with such patchy problem then call it a quit and thus let me introduce you to the meta world where no heuristic information is required to seek the solution. 
