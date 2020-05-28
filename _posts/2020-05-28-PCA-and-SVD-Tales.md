@@ -3,6 +3,7 @@ layout: post
 title: Tales of SVD and PCA
 subtitle: Explore the maths behind with python interpretation
 cover-img: /assets/img/path.jpg
+
 ---
 
 How many times I may walk over this super popular ML topic but it never ceases to amaze (or you may say scare me) with its ability to project itself to different spaces altogether. Let’s deconstruct and reconstruct this once again for one and all.
