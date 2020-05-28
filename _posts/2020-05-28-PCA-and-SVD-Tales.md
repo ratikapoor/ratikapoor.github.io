@@ -13,11 +13,11 @@ Let’s start with the estimation of the first axis which can be transcended as 
 
 If we consider, projecting a row xi of the data onto a line through the origin. Then,
 
-$x_{i1}^2 + x_{i2}^2 +………………+ x_{id}^2 = (length \space of\space projection)^2 + (distance\space of \space point\space to \space line)^2$
+$$x_{i1}^2 + x_{i2}^2 +………………+ x_{id}^2 = (length \space of\space projection)^2 + (distance\space of \space point\space to \space line)^2$$
 
-$(distance\space of \space point\space to \space line)^2 = x_{i1}^2 + x_{i2}^2 +………………+ x_{id}^2  -  (length \space of\space projection)^2$
+$$(distance\space of \space point\space to \space line)^2 = x_{i1}^2 + x_{i2}^2 +………………+ x_{id}^2  -  (length \space of\space projection)^2$$
 
-![](/images/pca.jpg "projection of x on v")
+![](/assets/img/pca.jpg "projection of x on v")
 
 Here, minimizing the sum of the squares of the distances is equivalent to maximizing
 the sum of the squares of the lengths of the projections onto the line. This way we can find the first basis vector v1 capturing the maximum variance of the data.
