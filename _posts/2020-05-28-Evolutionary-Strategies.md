@@ -52,10 +52,7 @@ Linking above phenomena with actual terminology, we can define:
 *	**Genes** – a particular position (point on the vector) in a chromosome
 *	**Allele** – a particular setting (arrangement of points on the vector) of a gene
 *	**Fitness function** – calculates the profit/cost (solution domain) associated with an individual
-*	**Representation** – How an individual in the population is represented internally. These search spaces are broadly categorized into 2 classes:
- 1.	Phenotypic: Individual represent solution internally exactly as they are represented externally
- 1.	Genotypic: Individuals internally represent solutions encoded in a universal representation language (binary encoding)
-  
+*	**Representation** – How an individual in the population is represented internally. It can be either encoded in binary form called as Genotypic or represented as it is known as phenotypic.  
 *	**Crossover** – Swapping section of two parents to produce children (information exchange between any two individuals)
 *	**Mutation** – Randomly tweaking candidate solution (for exploration)
 
@@ -92,12 +89,12 @@ Success of GAs is attributed to the phenomenon of survival of the fittest. It is
 #### Schema Theorem
 A schema is a template that identifies similarity of string (vector of points) at certain position. High fitness vectors may contain certain pattern of points embedded at certain position.
 
-For example, consider a length 7 schema $${\ast}1{\ast}{\ast}0{\ast}1$$ that describes the set of all vectors of length 7 with fixed values at second, fifth and seventh position. The ${\ast}$ symbol implies that these positions can take any binary value. Also, a schema can be defined by 2 main attributes: order and defining length. The order O(H) of a schema is defined as the number of fixed values in the template, while the defining length  is the distance between the first and last fixed positions. In the above example, the order is 3 and its defining length is 5. The fitness of a schema is the average fitness of all strings matching the schema. The fitness of a string is a measure of the value of the encoded problem solution, as computed by a problem-specific evaluation function.
+For example, consider a length 7 schema $${\ast}1{\ast}{\ast}0{\ast}1$$ that describes the set of all vectors of length 7 with fixed values at second, fifth and seventh position. The $${\ast}$$ symbol implies that these positions can take any binary value. Also, a schema can be defined by 2 main attributes: order and defining length. The order $$O(H)$$ of a schema is defined as the number of fixed values in the template, while the defining length  is the distance between the first and last fixed positions. In the above example, the order is 3 and its defining length is 5. The fitness of a schema is the average fitness of all strings matching the schema. The fitness of a string is a measure of the value of the encoded problem solution, as computed by a problem-specific evaluation function.
 
 Schema theorem states that short, low order, above average schemata receive exponentially increasing trials in successive generations.
 
 ### Brief description of operators
-For selecting fittest individuals some of the following commonly used operators can be used:
+For selecting fittest individuals some of the following selection techniques are used:
 
 #### Roulette Wheel or fitness proportionate –
 In this, individuals are selected based on fitness compared to average fitness of the population. The probability of selecting an individual can be given by:
@@ -129,7 +126,7 @@ def rank_selection(agents, sorted_parent_indexes,cross):
         children_agents.append(agents[selected_agent_index])
     return children_agents
   ```
-
+ <p> </p>
 
   
 #### Tournament Selection-
@@ -137,7 +134,7 @@ This technique is popular nowadays as it possesses less computational complexiti
 In k-way tournament selection, for each selection k individuals are randomly selected and then one with the best fitness is selected. Basically, conducting fight among k individuals and choosing the best among them.
 
 #### Why do we need crossover?
-In a way, information of important traits get dispersed in the population to create more high performing samples. Below are some operators that can be used to carry out disruption:
+In a way, information of important traits get dispersed in the population to create more high performing samples. Below are some crossover techniques that can be used to carry out disruption:
 
 #### 1-point crossover-
 A position is randomly selected on the vector and values are swapped for a broken segment.
@@ -195,6 +192,7 @@ def uniform_crossover(ind1,ind2,layers,uni_prob,mut_threshold):
     return offspring
  
  ```
+ <p> </p>
 #### Mutation
 An individual can be randomly tweaked in order to enable exploration in the population. 
 Below is the case wherein we are exponentially decaying the mutation threshold through generation such that in initial phases greater exploration is there and in later phases we decrease the probability.
@@ -226,6 +224,7 @@ def mutate(agent,eps_threshold):
 
     return child_agent
   ```
+  <p> </p>
  Below is the main snippet that calls all the function to run through the generations. You can [click here!](https://github.com/ratikapoor/evolutionary.git) to see the full code.
  
  ```python
@@ -307,7 +306,7 @@ for generation in range(generations):
     steps_done+=1
 #     env.render()
 ```
-
+<p> </p>
 ![](/assets/img/foo.jpg)
 
 CartPole defines "solving" as getting average reward of 195.0 over 100 consecutive trials. It can be seen in the above plot that we were able to solve the problem in 6th episode itself.
