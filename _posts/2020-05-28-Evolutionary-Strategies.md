@@ -198,7 +198,7 @@ animate = camera.animate()
 HTML(animate.to_html5_video())
 ```
 <figure>
-  <video controls width="100%" src="{{ site.baseurl }}/assets/img//cartpole.mp4" autoplay loop/>
+  <video controls width="100%" src="{{ site.baseurl }}/assets/img//converge.mp4" autoplay loop/>
 </figure>
 
 Instead of trying every possible combinations, short, low order and highly fit schemata are sampled and recombined to form high performing solutions (as they grow exponentially). We try to generate better and better solutions from the best partial solutions of past samplings. We can carry some top performing solutions to other generations known as elite solutions without any tweaking so that to avoid skipping optimal solution due to too much exploration.
