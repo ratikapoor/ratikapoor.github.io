@@ -223,6 +223,7 @@ def population(num_agents):
                 
     return agents
 ```
+<p> </p>
 
 #### For selecting fittest individuals some of the following selection techniques are used:
 
