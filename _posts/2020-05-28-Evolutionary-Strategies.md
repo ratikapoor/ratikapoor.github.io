@@ -88,6 +88,7 @@ $$m(H,t)=m(H,0).(1+c)^t$$
 If we consider crossover, then effect of disruption can be given by 
 
 $$p_d=\frac{\delta(H_1)}{l-1}$$
+
 If probability of mutation is pm then probability of surviving mutation is given by:
 $$(1-p_m)^{O(H)}$$
 
