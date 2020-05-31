@@ -89,9 +89,8 @@ If we consider crossover, then effect of disruption can be given by
 
 $$p_d=p_c\frac{\delta(H_1)}{l-1}$$
 
-p_c being the probabilty of crossover.
+$$p_c$$ being the probabilty of crossover. It can be said a schema will survive the disruption by $$1-p_c\frac{\delta(H_1)}{l-1}$$
 
-It can be said a schema will survive the disruption by $$1-p_c\frac{\delta(H_1)}{l-1}$$
 If probability of mutation is pm then probability of surviving mutation is given by:
 $$(1-p_m)^{O(H)}$$
 
@@ -117,20 +116,15 @@ from IPython.display import HTML
 
 def Individual(chromosome_length):
     """
-    Arguments: chromosome_length - length of individual solution
-                               
-    Returns: an individual solution
-                               
+    Arguments: chromosome_length - length of individual solution                           
+    Returns: an individual solution                             
     Description: Here we are representing the solution in binary encoded form
-    
     """
     ind= [rnd.randint(0,1) for _ in range(chromosome_length)]
     return(ind)
 
 def create_population(pop_size,chromosome_length):
-    """
-    Returns: Returns a population of pop_size of indiviudal solution
-    
+    """Returns: Returns a population of pop_size of indiviudal solution
     """
     pop=[]
     for i in range(pop_size):
@@ -140,11 +134,9 @@ def create_population(pop_size,chromosome_length):
 
 def roulette_wheel(pop):
     """                          
-    Returns: population of selected individuals for mating
-                               
+    Returns: population of selected individuals for mating                            
     Description: Selection is done on the basis fitness score compared to the total score of the population 
     giving higher weightage to individuals with higher scores
-    
     """
     mat=[]
     output_prob=np.array(list(map(fitness,pop)))/sum(list(map(fitness,pop)))
@@ -153,8 +145,7 @@ def roulette_wheel(pop):
         mat.append(pop[idx[0]])
     return(mat)
 
-def one_crossover(parent_1, parent_2):
-    
+def one_crossover(parent_1, parent_2): 
     #use one point crossover to combine two parents to create two children
     
     chromosome_length = len(parent_1)
@@ -176,26 +167,18 @@ def one_crossover(parent_1, parent_2):
 #randomly mutate a solution for exploration
 def mutate(individual, mutationRate):
     for swap in range(len(individual)):
-        if(rnd.random() < mutationRate):
-            
+        if(rnd.random() < mutationRate):      
             individual[swap] = 1-individual[swap]
     return individual
 
 def generations(episodes,pop,mutationRate):
-    """
-    Arguments: episodes - Number of generations for which iteration wil continue to find optimal solution
-                         
-               pop - Number updates to the policy
-               
-               mutationRate - mutation probability
-                               
-    Returns: an animation object
-                               
-    Description: Individuals are updated in each generation to return the optimal solution
-    
+    """    Arguments: episodes - Number of generations for which iteration wil continue to find optimal solution                        
+               pop - Number updates to the policy 
+               mutationRate - mutation probability                               
+    Returns: an animation object                               
+    Description: Individuals are updated in each generation to return the optimal solution    
     """
     fig = plt.figure()
-
     # Setting up camera to capture frames for animation
     camera = Camera(fig)
     for i in range(episodes):
@@ -210,7 +193,6 @@ def generations(episodes,pop,mutationRate):
             children.append(child_1)
             children.append(child_2)
         pop=children
-        print("soln",list(map(fitness,pop)))
         plt.plot(x,x**2 ,color="b")
         plt.plot(np.sqrt(np.array(list(map(fitness,pop)))),np.array(list(map(fitness,pop))),marker='o', 
                  color='r',markersize=12)
@@ -223,7 +205,6 @@ mutationRate=0.02
 pop=create_population(6,5)
 camera = generations(20,pop,mutationRate)
 animate = camera.animate()
-
 HTML(animate.to_html5_video())
 ```
 <figure>
