@@ -370,7 +370,6 @@ def mutate(agent,eps_threshold):
  
  ```python
  game_actions = 2 #2 actions possible: left or right
-
 #disable gradients as we will not use them
 torch.set_grad_enabled(False)
 
@@ -381,7 +380,6 @@ n_elite=5
 agents = population(num_agents)
 # # How many top agents to consider as parents
 top_limit = 20
-
 # # # run evolution until X generations
 generations = 500
 
@@ -400,24 +398,20 @@ mut=num_agents-cross
 scores=[]
 
 for generation in range(generations):
-
     # return rewards of agents
-    rewards=list(map(fitness,agents))
-    
+    rewards=list(map(fitness,agents))    
     sorted_parent_indexes = np.argsort(rewards)[::-1][:top_limit]
     
     eps_threshold = EPS_END + (EPS_START - EPS_END) * \
     math.exp(-1. * steps_done / EPS_DECAY)
-    
-    
+        
     mut_threshold = EPS_END + (MUT_START - MUT_END) * \
     math.exp(-1. * steps_done / EPS_DECAY)
 
     #select children for breeding
     mating=rank_selection(agents, sorted_parent_indexes,cross)
     children=[]
-    for j in range(int(len(mating)/2)):
-        
+    for j in range(int(len(mating)/2)):        
         #perform crossover of 70% population
         child=uniform_crossover(mating[j],mating[len(mating)-j-1],4,0.2,eps_threshold)  
         children.extend(child)
@@ -425,27 +419,20 @@ for generation in range(generations):
     #only mutate 30% of the population
     children_agents=return_mutation(agents, sorted_parent_indexes,n_elite,mut,mut_threshold) 
     children=children_agents+children
-  
-    print("")
-    print("")
     
     top_rewards = []
     for best_parent in sorted_parent_indexes:
-        top_rewards.append(rewards[best_parent])
-    
+        top_rewards.append(rewards[best_parent])    
 
     agents=children 
     print("Generation ", generation, " | Mean rewards: ", np.mean(rewards), " | Mean of top 5: ",np.mean(top_rewards[:5]))
-
     print("Rewards for top: ",top_rewards)
     scores.append(top_rewards[0])
     if len(scores) >= 100:
         if np.mean(scores[-100:]) >= 195.0:
             print('Solved after' + str(generation-100) + ' episodes')
             break
-
     steps_done+=1
-#     env.render()
 ```
 <p> </p>
 ![](/assets/img/foo.jpg)
