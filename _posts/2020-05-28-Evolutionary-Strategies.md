@@ -65,6 +65,146 @@ Linking above phenomena with actual terminology, we can define:
 *	**MUTATION** – Mutate certain children to induce variation in the population. It can be linked to exploration
 *	Continue until certain end time/ best solution found.
 
+Success of GAs is attributed to the phenomenon of survival of the fittest. It is proven through schema theorem stated below that fit individuals grow rapidly through generations (you can refer to Goldberg’s explanation for this).
+
+#### Schema Theorem
+A schema is a template that identifies similarity of string (vector of points) at certain position. High fitness vectors may contain certain pattern of points embedded at certain position.
+
+For example, consider a length 7 schema $${\ast}1{\ast}{\ast}0{\ast}1$$ that describes the set of all vectors of length 7 with fixed values at second, fifth and seventh position. The $${\ast}$$ symbol implies that these positions can take any binary value. Also, a schema can be defined by 2 main attributes: order and defining length. The order $$O(H)$$ of a schema is defined as the number of fixed values in the template, while the defining length  is the distance between the first and last fixed positions. In the above example, the order is 3 and its defining length is 5. The fitness of a schema is the average fitness of all strings matching the schema. The fitness of a string is a measure of the value of the encoded problem solution, as computed by a problem-specific evaluation function.
+
+Schema theorem states that short, low order, above average schemata receive exponentially increasing trials in successive generations. Let's try to understand how genetic algorithm will work by considering a problem of maximizing the function, $$f(x)=x^2$$ where x is permitted to vary between 0 and 31. The optimal solution of this problem is 961.
+
+```python 
+#Importing Packages
+import numpy as np
+import random as rnd
+# Always set random seeds for reproducibility
+np.random.seed(0)
+import matplotlib.pyplot as plt
+
+#Importing celluloid to create animation
+from celluloid import Camera
+from IPython.display import HTML
+
+def Individual(chromosome_length):
+    """
+    Arguments: chromosome_length - length of individual solution
+                               
+    Returns: an individual solution
+                               
+    Description: Here we are representing the solution in binary encoded form
+    
+    """
+    ind= [rnd.randint(0,1) for _ in range(chromosome_length)]
+    return(ind)
+
+def create_population(pop_size,chromosome_length):
+    """
+    Returns: Returns a population of pop_size of indiviudal solution
+    
+    """
+    pop=[]
+    for i in range(pop_size):
+        sequence=Individual(chromosome_length)
+        pop.append(sequence)
+    return(pop)
+
+def roulette_wheel(pop):
+    """                          
+    Returns: population of selected individuals for mating
+                               
+    Description: Selection is done on the basis fitness score compared to the total score of the population 
+    giving higher weightage to individuals with higher scores
+    
+    """
+    mat=[]
+    output_prob=np.array(list(map(fitness,pop)))/sum(list(map(fitness,pop)))
+    for i in range(len(pop)):
+        idx=np.random.choice(range(len(pop)),1,p=output_prob)
+        mat.append(pop[idx[0]])
+    return(mat)
+
+def one_crossover(parent_1, parent_2):
+    
+    #use one point crossover to combine two parents to create two children
+    
+    chromosome_length = len(parent_1)
+    crossover_point = rnd.randint(1, chromosome_length-1)
+    child_1 = []
+    child_2 = []
+        
+    child_1.extend(parent_1[0:crossover_point])
+    child_2.extend(parent_2[0:crossover_point])    
+    child_1.extend(parent_2[crossover_point:])
+    child_2.extend(parent_1[crossover_point:])
+    
+    #mutate children
+    mutate(child_1, mutationRate)
+    mutate(child_2, mutationRate)
+
+    return child_1,child_2
+
+#randomly mutate a solution for exploration
+def mutate(individual, mutationRate):
+    for swap in range(len(individual)):
+        if(rnd.random() < mutationRate):
+            
+            individual[swap] = 1-individual[swap]
+    return individual
+
+def generations(episodes,pop,mutationRate):
+    """
+    Arguments: episodes - Number of generations for which iteration wil continue to find optimal solution
+                         
+               pop - Number updates to the policy
+               
+               mutationRate - mutation probability
+                               
+    Returns: an animation object
+                               
+    Description: Individuals are updated in each generation to return the optimal solution
+    
+    """
+    fig = plt.figure()
+
+    # Setting up camera to capture frames for animation
+    camera = Camera(fig)
+    for i in range(episodes):
+        
+        #individuals with higher fitness score are selected with higher probability for breeding  
+        mating=roulette_wheel(pop)
+        children=[]
+        for j in range(int(len(mating)/2)):
+            
+            #crossover and mutation is performed on selected individuals
+            child_1,child_2=one_crossover(mating[j],mating[len(mating)-j-1])
+            children.append(child_1)
+            children.append(child_2)
+        pop=children
+        print("soln",list(map(fitness,pop)))
+        plt.plot(x,x**2 ,color="b")
+        plt.plot(np.sqrt(np.array(list(map(fitness,pop)))),np.array(list(map(fitness,pop))),marker='o', 
+                 color='r',markersize=12)
+        camera.snap()
+    plt.close() 
+    return camera
+
+mutationRate=0.02
+#create a population of size 6
+pop=create_population(6,5)
+camera = generations(20,pop,mutationRate)
+animate = camera.animate()
+
+HTML(animate.to_html5_video())
+```
+<figure>
+  <video controls width="100%" src="{{ site.baseurl }}/assets/img//cartpole.mp4" autoplay loop/>
+</figure>
+
+Instead of trying every possible combinations, short, low order and highly fit schemata are sampled and recombined to form high performing solutions (as they grow exponentially). We try to generate better and better solutions from the best partial solutions of past samplings. We can carry some top performing solutions to other generations known as elite solutions without any tweaking so that to avoid skipping optimal solution due to too much exploration.
+
+### Brief description of operators
+Let's go through some common types of techniques with python implementation of how reinforcement learning problem can be solved using this algorithm.
 
 For solving the cartpole, a simple 2 layered neural net was created which is used for initialization. Population of size "num_agents" is generated using this net to initialize agents with different weights.
 
@@ -84,17 +224,7 @@ def population(num_agents):
     return agents
 ```
 
-Success of GAs is attributed to the phenomenon of survival of the fittest. It is proven through schema theorem stated below that fit individuals grow rapidly through generations (you can refer to Goldberg’s explanation for this).
-
-#### Schema Theorem
-A schema is a template that identifies similarity of string (vector of points) at certain position. High fitness vectors may contain certain pattern of points embedded at certain position.
-
-For example, consider a length 7 schema $${\ast}1{\ast}{\ast}0{\ast}1$$ that describes the set of all vectors of length 7 with fixed values at second, fifth and seventh position. The $${\ast}$$ symbol implies that these positions can take any binary value. Also, a schema can be defined by 2 main attributes: order and defining length. The order $$O(H)$$ of a schema is defined as the number of fixed values in the template, while the defining length  is the distance between the first and last fixed positions. In the above example, the order is 3 and its defining length is 5. The fitness of a schema is the average fitness of all strings matching the schema. The fitness of a string is a measure of the value of the encoded problem solution, as computed by a problem-specific evaluation function.
-
-Schema theorem states that short, low order, above average schemata receive exponentially increasing trials in successive generations.
-
-### Brief description of operators
-For selecting fittest individuals some of the following selection techniques are used:
+#### For selecting fittest individuals some of the following selection techniques are used:
 
 #### Roulette Wheel or fitness proportionate –
 In this, individuals are selected based on fitness compared to average fitness of the population. The probability of selecting an individual can be given by:
