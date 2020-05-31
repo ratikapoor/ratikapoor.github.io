@@ -59,9 +59,9 @@ Linking above phenomena with actual terminology, we can define:
 
 
 ### Pseudo Code-
-*	**INITIALIZATION** – Initialize with some random solution of population size m. It can be viewed as a measure of degree of parallel search 
+*	**INITIALIZATION** – Initialize with some random solution of population size $$m$$. It can be viewed as a measure of degree of parallel search 
 *	**SELECTION** – Select individuals for reproduction by giving preference to fittest individuals also viewed as selection pressure. This step can be related to exploitation phase.
-*	**CROSSOVER** – Produce m offspring for next generation after tweaking selected parents. We will dig deep into types of crossover in next section.
+*	**CROSSOVER** – Produce $$m$$ offspring for next generation after tweaking selected parents. We will dig deep into types of crossover in next section.
 *	**MUTATION** – Mutate certain children to induce variation in the population. It can be linked to exploration
 *	Continue until certain end time/ best solution found.
 
@@ -72,7 +72,7 @@ A schema is a template that identifies similarity of string (vector of points) a
 
 For example, consider a length 7 schema $${\ast}1{\ast}{\ast}0{\ast}1$$ that describes the set of all vectors of length 7 with fixed values at second, fifth and seventh position. The $${\ast}$$ symbol implies that these positions can take any binary value. Also, a schema can be defined by 2 main attributes: order and defining length. The order $$O(H)$$ of a schema is defined as the number of fixed values in the template, while the defining length  is the distance between the first and last fixed positions. In the above example, the order is 3 and its defining length is 5. The fitness of a schema is the average fitness of all strings matching the schema. The fitness of a string is a measure of the value of the encoded problem solution, as computed by a problem-specific evaluation function.
 
-Consider, m example of schema H at any time t given by $$m= m(H,t)$$. Since, probability of schema getting selected will be proportional to its fitness, at time $$t+1$$ we will have:
+Consider, an example of schema H at any time t given by $$m= m(H,t)$$. Since, probability of schema getting selected will be proportional to its fitness, at time $$t+1$$ we will have:
 $$m(H,t+1)=m(H,t)\frac{f(H)}{\bar{f}}$$
 
 Where $$f(H)$$ is average fitness of vectors with schema H at time t
@@ -87,16 +87,21 @@ $$m(H,t)=m(H,0).(1+c)^t$$
 
 If we consider crossover, then effect of disruption can be given by 
 
-$$p_d=\frac{\delta(H_1)}{l-1}$$
+$$p_d=p_c\frac{\delta(H_1)}{l-1}$$
 
+p_c being the probabilty of crossover.
+
+It can be said a schema will survive the disruption by $$1-p_c\frac{\delta(H_1)}{l-1}$$
 If probability of mutation is pm then probability of surviving mutation is given by:
 $$(1-p_m)^{O(H)}$$
 
 For small values of $$p_m$$, may be approximated by $$1-o(H).pm$$. Considering reproduction, crossover and mutation in the final equation:
 
-$$m(H,t+1)>=m(H,t)\frac{f(H)}{\bar{f}}\Big[1-p_l\frac{\delta(H_1)}{l-1}-o(H)p_m\Big]$$
+$$m(H,t+1)>=m(H,t)\frac{f(H)}{\bar{f}}\Big[1-p_c\frac{\delta(H_1)}{l-1}-o(H)p_m\Big]$$
 
-Schema theorem states that short, low order, above average schemata receive exponentially increasing trials in successive generations. Let's try to understand how genetic algorithm will work by considering a problem of maximizing the function, $$f(x)=x^2$$ where x is permitted to vary between 0 and 31. The optimal solution of this problem is 961.
+Thus, schema theorem states that short, low order, above average schemata receive exponentially increasing trials in successive generations.
+
+Now, let's try to get a hang of how it works by simulating a problem of maximizing the function, $$f(x)=x^2$$ where x is permitted to vary between 0 and 31. The optimal solution of this problem is 961.
 
 ```python 
 #Importing Packages
