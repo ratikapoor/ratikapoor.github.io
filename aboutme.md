@@ -2,7 +2,7 @@
 layout: page
 title: About me
 subtitle: Here to learn
-cover-img: \assets\img\IMG-20200522-WA0013 (1).jpg
+cover-img: \assets\img\about.jpg
 
 ---
 
