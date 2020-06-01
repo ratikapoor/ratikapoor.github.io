@@ -330,7 +330,6 @@ def uniform_crossover(ind1,ind2,layers,uni_prob,mut_threshold):
         ind2=mutate(ind2,mut_threshold)
     offspring.extend((ind1,ind2))
     return offspring
- 
  ```
  <p> </p>
 #### Mutation
@@ -436,7 +435,7 @@ for generation in range(generations):
 <p> </p>
 ![](/assets/img/foo.jpg)
 
-CartPole defines "solving" as getting average reward of 195.0 over 100 consecutive trials. It can be seen in the above plot that we were able to solve the problem in 6th episode itself.
+CartPole defines "solving" as getting average reward of 195.0 over 100 consecutive trials. It can be seen in the above plot that we were able to solve the problem in 7th episode itself.
 
 Go ahead and tweak the code to solve other reinforcement problems as well.
 
