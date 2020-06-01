@@ -213,7 +213,7 @@ HTML(animate.to_html5_video())
 Short, low order and highly fit schemata are sampled and recombined to form high performing solutions (as they grow exponentially) instead of trying every possible combinations. We try to generate better and better solutions from the best partial solutions of past samplings. We can carry some top performing solutions to other generations known as elite solutions without any tweaking so that to avoid skipping optimal solution due to too much exploration.
 
 ### Brief description of operators
-Let's go through some common types of techniques with python implementation of how reinforcement learning problem can be solved using this algorithm.
+Let's cover some common operators used with python implementation of how reinforcement learning problem can be solved using this algorithm.
 
 For solving the cartpole, a simple 2 layered neural net was created which is used for initialization. Population of size "num_agents" is generated using this net to initialize agents with different weights.
 
@@ -234,7 +234,7 @@ def population(num_agents):
 ```
 <p> </p>
 
-#### For selecting fittest individuals some of the following selection techniques are used:
+#### Techniques for selecting fittest individuals for breeding:
 
 #### Roulette Wheel or fitness proportionate –
 In this, individuals are selected based on fitness compared to average fitness of the population. The probability of selecting an individual can be given by:
@@ -251,9 +251,9 @@ It works well in the initial iterations when there is significant difference bet
 #### Stochastic Universal Sampling-
 A version of fitness proportionate with only difference of multiple fixed points spaced evenly to select individuals unlike conducting repeated sampling in case of the former one. It gives chance to weaker solution as well to get selected.
 #### Rank Selection-
-It sorts the individual according to the fitness score and selects top performing individual. Thus, it is able to distinguish between individuals when fitness becomes similar but can be computationally expensive.
+It sorts the individual according to the fitness score and selects top performing individual. Thus, it is able to distinguish between individuals when fitness becomes similar but can be computationally expensive due to sorting algorithm used.
 
-In our case, rank selection was used to create mating population by sorting individuals on the basis of mean rewards.
+I used rank selection to create mating population by sorting individuals on the basis of mean rewards (10 parallel environment was created to compute mean reward for each agent).
 
 ```python
 def rank_selection(agents, sorted_parent_indexes,cross):
@@ -270,7 +270,7 @@ def rank_selection(agents, sorted_parent_indexes,cross):
 
   
 #### Tournament Selection-
-This technique is popular nowadays as it possesses less computational complexities and has an added advantage of performing at par with linear ranking or truncation without having to sort population on the basis of fitness. 
+This technique is popular nowadays as it possesses less computational complexities and has an added advantage of performing at par with linear ranking without having to sort population on the basis of fitness. 
 In k-way tournament selection, for each selection k individuals are randomly selected and then one with the best fitness is selected. Basically, conducting fight among k individuals and choosing the best among them.
 
 #### Why do we need crossover?
