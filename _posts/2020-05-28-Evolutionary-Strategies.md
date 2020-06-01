@@ -91,8 +91,7 @@ $$p_d=p_c\frac{\delta(H_1)}{l-1}$$
 
 $$p_c$$ being the probabilty of crossover. It can be said a schema will survive the disruption by $$1-p_c\frac{\delta(H_1)}{l-1}$$
 
-If probability of mutation is pm then probability of surviving mutation is given by:
-$$(1-p_m)^{O(H)}$$
+If probability of mutation is pm then probability of surviving mutation is given by: $$(1-p_m)^{O(H)}$$
 
 For small values of $$p_m$$, may be approximated by $$1-o(H).pm$$. Considering reproduction, crossover and mutation in the final equation:
 
@@ -211,7 +210,7 @@ HTML(animate.to_html5_video())
   <video controls width="100%" src="{{ site.baseurl }}/assets/img//converge.mp4" autoplay loop/>
 </figure>
 
-Instead of trying every possible combinations, short, low order and highly fit schemata are sampled and recombined to form high performing solutions (as they grow exponentially). We try to generate better and better solutions from the best partial solutions of past samplings. We can carry some top performing solutions to other generations known as elite solutions without any tweaking so that to avoid skipping optimal solution due to too much exploration.
+Short, low order and highly fit schemata are sampled and recombined to form high performing solutions (as they grow exponentially) instead of trying every possible combinations. We try to generate better and better solutions from the best partial solutions of past samplings. We can carry some top performing solutions to other generations known as elite solutions without any tweaking so that to avoid skipping optimal solution due to too much exploration.
 
 ### Brief description of operators
 Let's go through some common types of techniques with python implementation of how reinforcement learning problem can be solved using this algorithm.
